@@ -7,17 +7,28 @@ public class MoveToPoint : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    private bool selected;
+    [HideInInspector]
+    public bool selected = false;
     private Renderer rend;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-         rend = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                if (hit.collider.gameObject.tag == "Terrain")
+                    selected = false;
+            }
+        }
         if (Input.GetMouseButtonDown(1) && selected)
         {
             RaycastHit hit;
@@ -27,6 +38,16 @@ public class MoveToPoint : MonoBehaviour
                 agent.destination = hit.point;
             }
         }
+
+        if (!selected)
+        {
+            rend.material.color = Color.blue;
+        }
+
+        else if (selected)
+        {
+            rend.material.color = Color.white;
+        }
     }
 
     void OnMouseDown()
@@ -34,12 +55,10 @@ public class MoveToPoint : MonoBehaviour
         if (!selected)
         {
             selected = true;
-            rend.material.color = Color.blue;
         }
         else
         {
             selected = false;
-            rend.material.color = Color.white;
         }
     }
 

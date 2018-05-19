@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/lynScene.unity
+- path: Assets/Scenes/Zac.unity
   isLoaded: 1
   isActive: 1
