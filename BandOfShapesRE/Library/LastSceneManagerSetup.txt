@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< Updated upstream
-- path: Assets/Scenes/Zac.unity
-=======
-- path: Assets/Scenes/Ben.unity
->>>>>>> Stashed changes
+- path: Assets/Scenes/AaronScene.unity
   isLoaded: 1
   isActive: 1

@@ -4,12 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< Updated upstream
-  - Enemy
   - Terrain
-=======
-  - Interactable
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -19,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 
