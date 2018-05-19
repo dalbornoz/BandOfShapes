@@ -166,3 +166,7 @@ C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.c
 C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.dll
 C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.pdb
+C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.dll
+C:\Users\kathyc2\Desktop\BandOfShapes\BandOfShapes\BandOfShapesRE\obj\Debug\Assembly-CSharp.pdb
