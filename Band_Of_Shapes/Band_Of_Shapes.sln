@@ -1,12 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Band_Of_Shapes", "Assembly-CSharp.csproj", "{445F85A9-4D0D-A9C6-6815-158B290A10E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{445F85A9-4D0D-A9C6-6815-158B290A10E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445F85A9-4D0D-A9C6-6815-158B290A10E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445F85A9-4D0D-A9C6-6815-158B290A10E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445F85A9-4D0D-A9C6-6815-158B290A10E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
