@@ -42,4 +42,5 @@ public class MoveToPoint : MonoBehaviour
             rend.material.color = Color.white;
         }
     }
+
 }
