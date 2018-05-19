@@ -27,11 +27,17 @@ public class EnemyAI : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && target == null)
         {
             target = other.gameObject;
             Debug.Log("Wow");
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && target == null)
+            target = other.gameObject;
     }
 
     void OnTriggerExit(Collider other)

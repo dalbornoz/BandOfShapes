@@ -12,6 +12,11 @@ public class MoveToPoint : MonoBehaviour
     public bool selected = false;
     private Renderer rend;
 
+    private bool ischild = false;
+    private int delay;
+    private int waittime = 0;
+    private bool stop = false;
+    private MovingPlatform ms;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -23,16 +28,27 @@ public class MoveToPoint : MonoBehaviour
 
     void Update()
     {
+        if (ischild)
+        {
+            if (ms.stop && waittime == 0)
+            {
+                agent.enabled = true;
+                ischild = false;
+                transform.parent = null;
+                StartCoroutine(Wait());
+                
+            }
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-				if (hit.collider.gameObject.tag == "Terrain")
-				{
-					selected = false;
-				}
+                if (hit.collider.gameObject.tag != "Player")
+                    selected = false;
             }
         }
         if (Input.GetMouseButtonDown(1) && selected)
@@ -71,6 +87,53 @@ public class MoveToPoint : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Edge" && agent.enabled == false)
+        {
+            
+        }
+
+        
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.tag == "Platform")
+        {
+            ms = other.GetComponent<MovingPlatform>();
+
+            delay = ms.delay+5;
+            if (!ischild && ms.stop == true && !stop)
+            {
+                waittime = ms.delay+1;
+                StartCoroutine(DelayPlatform());
+                agent.enabled = false;
+                ischild = true;
+                transform.rotation = other.transform.rotation;
+                transform.parent = other.transform;
+                transform.position = new Vector3(other.transform.position.x, other.transform.position.y + 1, other.transform.position.z);
+                Debug.Log("IM ON");
+            }
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        stop = true;
+        yield return new WaitForSeconds(delay);
+        stop = false;
+    }
+
+    IEnumerator DelayPlatform()
+    {
+        yield return new WaitForSeconds(waittime);
+        waittime = 0;
+    }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	void CreateCircleAroundPoint ()
 	{
 		float x;
@@ -98,4 +161,8 @@ public class MoveToPoint : MonoBehaviour
 		}
 	}
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
