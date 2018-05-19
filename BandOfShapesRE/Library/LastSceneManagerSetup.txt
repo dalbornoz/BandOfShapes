@@ -1,4 +1,8 @@
 sceneSetups:
-- path: Assets/Scenes/lynScene.unity
+<<<<<<< Updated upstream
+- path: Assets/Scenes/Zac.unity
+=======
+- path: Assets/Scenes/Ben.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
