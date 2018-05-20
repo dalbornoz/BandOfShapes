@@ -8,6 +8,7 @@ public class RestartButton : MonoBehaviour {
     public void restartlevel()
     {
         Time.timeScale = 1;
+        Debug.Log("Retry");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

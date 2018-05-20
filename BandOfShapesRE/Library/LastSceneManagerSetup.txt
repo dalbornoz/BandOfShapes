@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Ben.unity
+- path: Assets/Scenes/TutorialFinalWithDialogue.unity
   isLoaded: 1
   isActive: 1

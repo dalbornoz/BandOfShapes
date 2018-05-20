@@ -56,6 +56,6 @@ public class TutorialEndPlayerDialogueTrigger : PlayerDialogueTrigger {
 			anim.SetTrigger ("playDialogue");
 		}
 		yield return new WaitForSeconds (4.0f);
-		SceneManager.LoadScene ("AaronScene"); // Change the next scene to be the next level
+		SceneManager.LoadScene(2); // Change the next scene to be the next level
 	}
 }

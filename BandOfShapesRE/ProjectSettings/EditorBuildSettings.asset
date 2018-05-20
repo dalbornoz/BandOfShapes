@@ -9,15 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f90a266774a88844496a0628b509031c
   - enabled: 1
-    path: Assets/Scenes/Ben.unity
-    guid: 65653535df05034408e40512841fbfec
+    path: Assets/Scenes/TutorialFinalWithDialogue.unity
+    guid: 7bf2d4955719610469152b2bcc6c2554
   - enabled: 1
-    path: Assets/Scenes/Zac.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/TutorialAaronWithDialogue.unity
-    guid: 71ae7b4ff0ac05947bb978ea48a8a2ca
-  - enabled: 1
-    path: Assets/Scenes/AaronScene.unity
-    guid: bde6fd68e3e8ea04fa1e7623c6c33638
   m_configObjects: {}
