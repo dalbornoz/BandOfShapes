@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 222949480415100432}
   - component: {fileID: 114980739233525754}
   - component: {fileID: 114269364574699818}
-  - component: {fileID: 114450221779739598}
+  - component: {fileID: 114502009473878902}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114450221779739598}
-        m_MethodName: doquit
+      - m_Target: {fileID: 114502009473878902}
+        m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114450221779739598
+--- !u!114 &114502009473878902
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566643068981372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c07577b3736f2374f899b550aaed66bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 836467ab0fc69ab439d21c6619cb48db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114980739233525754
