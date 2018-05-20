@@ -28,6 +28,16 @@ public class MoveToPoint : MonoBehaviour
 
     void Update()
     {
+        if (!selected)
+        {
+            lineRenderer.enabled = false;
+        }
+
+        else
+        {
+            lineRenderer.enabled = true;
+        }
+
         if (ischild)
         {
             if (ms.stop && waittime == 0)

@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour {
     public float panSpeed = 20.0f;
     public float borderThiccness = 10.0f;
 
-    public Vector2 panLimit = new Vector2(50.0f,50.0f);
+    public Vector3 panLimit = new Vector3(50.0f,0,50.0f);
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour {
         }
 
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
+        pos.z = Mathf.Clamp(pos.z, -panLimit.z, panLimit.z);
         transform.position = pos;
 	}
 }
