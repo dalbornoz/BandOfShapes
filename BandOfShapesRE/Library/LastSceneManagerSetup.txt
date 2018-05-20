@@ -1,4 +1,5 @@
 sceneSetups:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -16,5 +17,8 @@ sceneSetups:
 =======
 - path: Assets/Scenes/Ben.unity
 >>>>>>> Stashed changes
+=======
+- path: Assets/Scenes/Zac.unity
+>>>>>>> master
   isLoaded: 1
   isActive: 1
