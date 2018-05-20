@@ -4,25 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  - Enemy
   - Terrain
-=======
   - Interactable
->>>>>>> Stashed changes
-=======
-=======
->>>>>>> master
-  - Terrain
   - Enemy
-  - Platform
-  - Edge
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -32,12 +16,8 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
-  - PostProcessing
-=======
-  - 
->>>>>>> master
-  - 
+  - Gate
+  - Terrain
   - 
   - 
   - 
