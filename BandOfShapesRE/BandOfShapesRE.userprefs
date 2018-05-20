@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CharacterDialogueManager.cs">
+    <Files>
+      <File FileName="Assets\CheckPlayerFinish.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\MoveToPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets\GateControlledByButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\TerrainCollisionManager.cs" Line="12" Column="59" />
+      <File FileName="Assets\Scripts\Interactables\TriggerMoved.cs" Line="42" Column="2" />
+      <File FileName="Assets\Scripts\Interactables\PressureButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\CheckPlayerDialogueOne.cs" Line="24" Column="31" />
+      <File FileName="Assets\CharacterDialogueManager.cs" Line="33" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

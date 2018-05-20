@@ -15,7 +15,7 @@ public class TriggerMoved : MonoBehaviour
     public float speed = 0.5f;
 
     private Vector3 initialPosition;
-    private Vector3 target;
+    public Vector3 target;
 
 
     // Use this for initialization
