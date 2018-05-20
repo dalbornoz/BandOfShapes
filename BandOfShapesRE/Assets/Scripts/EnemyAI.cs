@@ -19,10 +19,10 @@ public class EnemyAI : MonoBehaviour {
         {
             agent.destination = target.transform.position;
         }
-        if (Vector3.Distance(transform.position, agent.destination) <= 1.75f && target != null)
+        if (target != null && Vector3.Distance(transform.position, target.transform.position) <= 1.75f)
         {
             Debug.Log("DIE");
-            Destroy(target);
+            target.gameObject.SetActive(false);
             target = null;
             agent.destination = transform.position;
         }
