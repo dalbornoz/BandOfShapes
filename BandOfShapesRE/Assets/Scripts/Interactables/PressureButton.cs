@@ -9,6 +9,8 @@ public class PressureButton : MonoBehaviour {
     private OffMeshLink oof;
     private GameObject enemy;
     public bool initmesh = false;
+    public bool enemyTrigger = false;
+
 	// Use this for initialization
 	void Start () {
         oof = GetComponent<OffMeshLink>();
@@ -34,7 +36,7 @@ public class PressureButton : MonoBehaviour {
             //print("TRIGGERING");
         }
 
-        else if (other.tag == "Enemy")
+        else if (other.tag == "Enemy" && enemyTrigger)
         {
             enemy = other.gameObject;
             isTriggered = true;
