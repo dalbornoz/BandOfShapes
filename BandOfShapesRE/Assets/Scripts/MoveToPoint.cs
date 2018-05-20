@@ -17,6 +17,23 @@ public class MoveToPoint : MonoBehaviour
     private int waittime = 0;
     private bool stop = false;
     private MovingPlatform ms;
+
+    private float lastShot = 0;
+    private bool shooting;
+    private bool targeting;
+    private float distance;
+    private Vector3 heading;
+    private Collider targetCollider;
+
+    public float attackRange;
+    public float attackInterval;
+    public float projectileLife;
+    public GameObject shooterProjectilePrefab;
+    public Transform shooterProjectileSpawn;
+    public float shooterProjectileSpeed;
+
+    public bool isBox;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,6 +41,8 @@ public class MoveToPoint : MonoBehaviour
 		CreateCircleAroundPoint ();
 		lineRenderer.widthMultiplier = 0.25f;
 		lineRenderer.enabled = false;
+        shooting = false;
+        targeting = false;
     }
 
     void Update()
@@ -51,6 +70,38 @@ public class MoveToPoint : MonoBehaviour
             return;
         }
 
+        if (isBox){
+            string test_str = "distance: " + distance + "attackRange: " + attackRange;
+            if (selected)
+            {
+                if (targeting)
+                {
+                    heading = targetCollider.transform.position - transform.position;
+                    distance = heading.magnitude;
+                }
+                if (shooting && targeting && targetCollider.tag == "Shootable")
+                {
+                    agent.destination = agent.transform.position;
+                    transform.LookAt(targetCollider.transform.position);
+                    Shoot();
+                }
+                if (!shooting && targeting && targetCollider.tag == "Shootable")
+                {
+                    if (distance < attackRange && targeting)
+                    {
+                        shooting = true;
+                    }
+                    else
+                    {
+                        shooting = false;
+                        agent.destination = new Vector3(Mathf.Cos(targetCollider.transform.rotation.y) * distance + targetCollider.transform.position.x, targetCollider.transform.position.y, Mathf.Sin(targetCollider.transform.rotation.y) * distance + targetCollider.transform.position.z);
+                    }
+                }
+            }
+        }
+
+
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -61,17 +112,61 @@ public class MoveToPoint : MonoBehaviour
                     selected = false;
             }
         }
-        if (Input.GetMouseButtonDown(1) && selected)
+        if (Input.GetMouseButtonDown(1) && selected && isBox)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                targetCollider = hit.collider;
+                if (targetCollider.tag == "Enemy")
+                {
+                    targeting = true;
+                }
+                else
+                {
+                    targeting = false;
+                    shooting = false;
+                    agent.destination = hit.point;
+                }
+       
+                //Vector3 direction = heading / distance;
+                print(hit.collider.tag);
+
+                if (!shooting)
+                {
+                    agent.destination = hit.point;
+                }
+				agent.updateRotation = false;
+            }
+        }
+
+        else if (Input.GetMouseButtonDown(1) && selected && !isBox)
         {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
-				agent.updateRotation = false;
+                agent.updateRotation = false;
+
             }
         }
 
+    }
+
+    void Shoot()
+    {
+        if (Time.time > attackInterval + lastShot)
+        {
+            GameObject shooterProjectile = (GameObject)Instantiate(shooterProjectilePrefab, shooterProjectileSpawn.position, shooterProjectileSpawn.rotation);
+
+            shooterProjectile.GetComponent<Rigidbody>().velocity = shooterProjectile.transform.forward * shooterProjectileSpeed;
+
+            Destroy(shooterProjectile, projectileLife);
+
+            lastShot = Time.time;
+        }
     }
 
     void OnMouseDown()

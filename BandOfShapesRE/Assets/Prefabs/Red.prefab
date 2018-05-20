@@ -158,6 +158,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 120037604185055564}
   selected: 0
+  attackRange: 10
+  attackInterval: 2
+  projectileLife: 10
+  shooterProjectilePrefab: {fileID: 1562309930116870, guid: 9b71afc6372f5cc4bba74aa264445304,
+    type: 2}
+  shooterProjectileSpawn: {fileID: 4799188114057472}
+  shooterProjectileSpeed: 5
+  isBox: 1
 --- !u!120 &120037604185055564
 LineRenderer:
   m_ObjectHideFlags: 1

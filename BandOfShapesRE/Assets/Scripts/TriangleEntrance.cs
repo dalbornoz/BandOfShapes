@@ -7,12 +7,17 @@ public class TriangleEntrance : MonoBehaviour {
     public Transform exit;
     // Use this for initialization
     //
+    private NavMeshAgent agent;
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Triangle"))
+        if (other.name == "Green")
         {
+            agent = other.gameObject.GetComponent<NavMeshAgent>();
+            agent.destination = other.gameObject.transform.position;
+            agent.enabled = false;
             other.gameObject.transform.position = exit.position;
-            other.gameObject.GetComponent<NavMeshAgent>().destination = other.gameObject.transform.position;
+            agent.enabled = true;
+            agent.destination = other.gameObject.transform.position;
         }
     }
 }
