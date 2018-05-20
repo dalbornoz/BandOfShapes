@@ -12,6 +12,29 @@ public class MoveToPoint : MonoBehaviour
     public bool selected = false;
     private Renderer rend;
 
+    private bool ischild = false;
+    private int delay;
+    private int waittime = 0;
+    private bool stop = false;
+    private MovingPlatform ms;
+
+    private float lastShot = 0;
+    private bool shooting;
+    private bool targeting;
+    private float distance;
+    private Vector3 heading;
+    private Collider targetCollider;
+
+    public float attackRange;
+    public float attackInterval;
+    public float projectileLife;
+    public GameObject shooterProjectilePrefab;
+    public Transform shooterProjectileSpawn;
+    public float shooterProjectileSpeed;
+
+    public bool isBox;
+
+    private Quaternion rotation;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,41 +42,140 @@ public class MoveToPoint : MonoBehaviour
 		CreateCircleAroundPoint ();
 		lineRenderer.widthMultiplier = 0.25f;
 		lineRenderer.enabled = false;
+        shooting = false;
+        targeting = false;
+        rotation = transform.rotation;
     }
 
     void Update()
     {
+        if (!selected)
+        {
+            lineRenderer.enabled = false;
+        }
+
+        else
+        {
+            lineRenderer.enabled = true;
+        }
+
+        if (ischild)
+        {
+            if (ms.stop && waittime == 0)
+            {
+                agent.enabled = true;
+                ischild = false;
+                transform.parent = null;
+                StartCoroutine(Wait());
+                
+            }
+            return;
+        }
+
+        if (isBox){
+            string test_str = "distance: " + distance + "attackRange: " + attackRange;
+            if (selected)
+            {
+                if (targetCollider != null && !targetCollider.gameObject.activeSelf)
+                {
+                    targeting = false;
+                    shooting = false;
+                    transform.rotation = rotation;
+                }
+                if (targeting)
+                {
+                    heading = targetCollider.transform.position - transform.position;
+                    distance = heading.magnitude;
+                }
+                if (shooting && targeting && targetCollider.tag == "Enemy")
+                {
+                    agent.destination = agent.transform.position;
+                    transform.LookAt(targetCollider.transform.position);
+                    Shoot(targetCollider.transform);
+                }
+                if (!shooting && targeting && targetCollider.tag == "Enemy")
+                {
+                    if (distance < attackRange && targeting)
+                    {
+                        shooting = true;
+                    }
+                    else
+                    {
+                        shooting = false;
+                        agent.destination = new Vector3(Mathf.Cos(targetCollider.transform.rotation.y) * distance + targetCollider.transform.position.x, targetCollider.transform.position.y, Mathf.Sin(targetCollider.transform.rotation.y) * distance + targetCollider.transform.position.z);
+                    }
+                }
+            }
+        }
+
+
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-				if (hit.collider.gameObject.tag == "Terrain")
-				{
-					selected = false;
-				}
+                if (hit.collider.gameObject.tag != "Player")
+                    selected = false;
             }
         }
-        if (Input.GetMouseButtonDown(1) && selected)
+        if (Input.GetMouseButtonDown(1) && selected && isBox)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                targetCollider = hit.collider;
+                if (targetCollider.tag == "Enemy")
+                {
+                    targeting = true;
+                }
+                else
+                {
+                    targeting = false;
+                    shooting = false;
+                    agent.destination = hit.point;
+                }
+       
+                //Vector3 direction = heading / distance;
+                print(hit.collider.tag);
+
+                if (!shooting)
+                {
+                    agent.destination = hit.point;
+                }
+				agent.updateRotation = false;
+            }
+        }
+
+        else if (Input.GetMouseButtonDown(1) && selected && !isBox)
         {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
-				agent.updateRotation = false;
+                agent.updateRotation = false;
+
             }
         }
 
-        if (!selected)
-        {
-            rend.material.color = Color.blue;
-        }
+    }
 
-        else if (selected)
+    void Shoot(Transform target)
+    {
+        if (Time.time > attackInterval + lastShot)
         {
-            rend.material.color = Color.white;
+            Debug.Log("SHOOT");
+
+            GameObject shooterProjectile = Instantiate(shooterProjectilePrefab, shooterProjectileSpawn.position, shooterProjectileSpawn.rotation);
+            shooterProjectile.GetComponent<ShooterProjectile>().Target = target;
+            shooterProjectile.GetComponent<Rigidbody>().velocity = shooterProjectile.transform.forward * shooterProjectileSpeed;
+
+            Destroy(shooterProjectile, projectileLife);
+
+            lastShot = Time.time;
         }
     }
 
@@ -69,6 +191,52 @@ public class MoveToPoint : MonoBehaviour
             selected = false;
 			lineRenderer.enabled = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Edge" && agent.enabled == false)
+        {
+            
+        }
+
+        
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.tag == "Platform")
+        {
+            ms = other.GetComponent<MovingPlatform>();
+
+            delay = ms.delay+5;
+            if (!ischild && ms.stop == true && !stop)
+            {
+                waittime = ms.delay+1;
+                StartCoroutine(DelayPlatform());
+                agent.enabled = false;
+                ischild = true;
+                transform.rotation = other.transform.rotation;
+                transform.parent = other.transform;
+                transform.position = new Vector3(other.transform.position.x, other.transform.position.y + 1, other.transform.position.z);
+                Debug.Log("IM ON");
+            }
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        stop = true;
+        yield return new WaitForSeconds(delay);
+        stop = false;
+    }
+
+    IEnumerator DelayPlatform()
+    {
+        yield return new WaitForSeconds(waittime);
+        waittime = 0;
     }
 
 	void CreateCircleAroundPoint ()
@@ -97,5 +265,6 @@ public class MoveToPoint : MonoBehaviour
 			angle += (360f / segments);
 		}
 	}
+
 
 }
