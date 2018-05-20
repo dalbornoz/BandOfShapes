@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour {
 
+    public float radius = 0.5f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -14,12 +16,10 @@ public class Spike : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" && Vector3.Distance(other.transform.position, transform.position) <= radius)
         {
-            if (Mathf.Abs(Mathf.Abs(other.transform.position.x) - Mathf.Abs(this.transform.position.x)) < 0.1 && Mathf.Abs(Mathf.Abs(other.transform.position.y) - Mathf.Abs(this.transform.position.y)) < 0.1 && Mathf.Abs(Mathf.Abs(other.transform.position.z) - Mathf.Abs(this.transform.position.z)) < 0.1)
-            {
                 Destroy(other.gameObject);
-            }
+
         }
     }
 }
