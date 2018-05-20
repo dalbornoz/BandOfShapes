@@ -59,15 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CheckPlayerFinish.cs" />
-    <Compile Include="Assets\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CheckPlayerFinish.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Interactables\PressureButton.cs" />
     <Compile Include="Assets\Scripts\Interactables\TriggerMoved.cs" />
     <Compile Include="Assets\Scripts\Main Menu\PauseController.cs" />
     <Compile Include="Assets\Scripts\Main Menu\RestartButton.cs" />
     <Compile Include="Assets\Scripts\MoveToPoint.cs" />
+    <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\Player Dialogues\CharacterDialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Player Dialogues\PlayerDialogueTriggerOne.cs" />
     <Compile Include="Assets\Scripts\ShooterController.cs" />
     <Compile Include="Assets\Scripts\ShooterProjectile.cs" />
     <Compile Include="Assets\Scripts\TriangleClassObstacle.cs" />
