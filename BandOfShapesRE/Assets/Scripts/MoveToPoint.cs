@@ -62,15 +62,6 @@ public class MoveToPoint : MonoBehaviour
             }
         }
 
-        if (!selected)
-        {
-            rend.material.color = Color.blue;
-        }
-
-        else if (selected)
-        {
-            rend.material.color = Color.white;
-        }
     }
 
     void OnMouseDown()
@@ -132,8 +123,7 @@ public class MoveToPoint : MonoBehaviour
         yield return new WaitForSeconds(waittime);
         waittime = 0;
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 	void CreateCircleAroundPoint ()
 	{
 		float x;
@@ -161,8 +151,5 @@ public class MoveToPoint : MonoBehaviour
 		}
 	}
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 }
