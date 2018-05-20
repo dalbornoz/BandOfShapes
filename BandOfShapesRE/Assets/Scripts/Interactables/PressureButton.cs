@@ -7,7 +7,8 @@ public class PressureButton : MonoBehaviour {
 
     public bool isTriggered;
     private OffMeshLink oof;
-
+    private GameObject enemy;
+    public bool initmesh = false;
 	// Use this for initialization
 	void Start () {
         oof = GetComponent<OffMeshLink>();
@@ -16,10 +17,12 @@ public class PressureButton : MonoBehaviour {
 
     private void Update()
     {
+        if (enemy != null && !enemy.gameObject.activeSelf)
+            isTriggered = false;
         if (isTriggered)
-            oof.activated = true;
+            oof.activated = !initmesh;
         else
-            oof.activated = false;
+            oof.activated = initmesh;
     }
 
     //Triggers while any player object is on the trigger collider
@@ -29,6 +32,12 @@ public class PressureButton : MonoBehaviour {
         {
             isTriggered = true;
             //print("TRIGGERING");
+        }
+
+        else if (other.tag == "Enemy")
+        {
+            enemy = other.gameObject;
+            isTriggered = true;
         }
     }
 

@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ShooterProjectile : MonoBehaviour {
 
-    private void OnTriggerEnter(Collider other)
+    public Transform Target;
+    private void FixedUpdate()
     {
-        Destroy(gameObject);
+        if (Vector3.Distance(transform.position, Target.position) <= 1.0f)
+        {
+            Target.gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 }

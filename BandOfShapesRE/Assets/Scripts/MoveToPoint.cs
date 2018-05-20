@@ -34,6 +34,7 @@ public class MoveToPoint : MonoBehaviour
 
     public bool isBox;
 
+    private Quaternion rotation;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -43,6 +44,7 @@ public class MoveToPoint : MonoBehaviour
 		lineRenderer.enabled = false;
         shooting = false;
         targeting = false;
+        rotation = transform.rotation;
     }
 
     void Update()
@@ -74,18 +76,24 @@ public class MoveToPoint : MonoBehaviour
             string test_str = "distance: " + distance + "attackRange: " + attackRange;
             if (selected)
             {
+                if (targetCollider != null && !targetCollider.gameObject.activeSelf)
+                {
+                    targeting = false;
+                    shooting = false;
+                    transform.rotation = rotation;
+                }
                 if (targeting)
                 {
                     heading = targetCollider.transform.position - transform.position;
                     distance = heading.magnitude;
                 }
-                if (shooting && targeting && targetCollider.tag == "Shootable")
+                if (shooting && targeting && targetCollider.tag == "Enemy")
                 {
                     agent.destination = agent.transform.position;
                     transform.LookAt(targetCollider.transform.position);
-                    Shoot();
+                    Shoot(targetCollider.transform);
                 }
-                if (!shooting && targeting && targetCollider.tag == "Shootable")
+                if (!shooting && targeting && targetCollider.tag == "Enemy")
                 {
                     if (distance < attackRange && targeting)
                     {
@@ -155,12 +163,14 @@ public class MoveToPoint : MonoBehaviour
 
     }
 
-    void Shoot()
+    void Shoot(Transform target)
     {
         if (Time.time > attackInterval + lastShot)
         {
-            GameObject shooterProjectile = (GameObject)Instantiate(shooterProjectilePrefab, shooterProjectileSpawn.position, shooterProjectileSpawn.rotation);
+            Debug.Log("SHOOT");
 
+            GameObject shooterProjectile = Instantiate(shooterProjectilePrefab, shooterProjectileSpawn.position, shooterProjectileSpawn.rotation);
+            shooterProjectile.GetComponent<ShooterProjectile>().Target = target;
             shooterProjectile.GetComponent<Rigidbody>().velocity = shooterProjectile.transform.forward * shooterProjectileSpeed;
 
             Destroy(shooterProjectile, projectileLife);

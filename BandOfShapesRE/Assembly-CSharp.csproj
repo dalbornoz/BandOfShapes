@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Main Menu\RestartButton.cs" />
     <Compile Include="Assets\Scripts\MoveToPoint.cs" />
     <Compile Include="Assets\Scripts\ShooterController.cs" />
+    <Compile Include="Assets\Scripts\ShooterProjectile.cs" />
     <Compile Include="Assets\Scripts\TriangleClassObstacle.cs" />
     <Compile Include="Assets\Scripts\TriangleEntrance.cs" />
     <Reference Include="UnityEditor.StandardEvents">
