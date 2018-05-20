@@ -59,18 +59,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Compile Include="Assets\CheckPlayerFinish.cs" />
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of acac497... Added partially working main menu
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets\MovingPlatform.cs" />
+>>>>>>> Stashed changes
+=======
+    <Compile Include="Assets\MovingPlatform.cs" />
+>>>>>>> Stashed changes
+=======
+    <Compile Include="Assets\MovingPlatform.cs" />
+>>>>>>> Stashed changes
+=======
+    <Compile Include="Assets\MovingPlatform.cs" />
+>>>>>>> Stashed changes
+>>>>>>> master
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
+=======
     <Compile Include="Assets\Scripts\Interactables\PressureButton.cs" />
     <Compile Include="Assets\Scripts\Interactables\TriggerMoved.cs" />
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+    <Compile Include="Assets\Scripts\MoveToPoint.cs" />
+    <Compile Include="Assets\Scripts\ShooterController.cs" />
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets\Scripts\Main Menu\PauseController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Assets\Scripts\Main Menu\QuitButton.cs" />
+    <Compile Include="Assets\Scripts\Main Menu\RestartButton.cs" />
     <Compile Include="Assets\Scripts\Main Menu\StartButton.cs" />
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <Compile Include="Assets\Scripts\MoveToPoint.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/kathyc2/Desktop/BandOfShapes/BandOfShapes/BandOfShapesRE/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/kathyc2/Desktop/BandOfShapes/BandOfShapesRE/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
+>>>>>>> master
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/kathyc2/Desktop/BandOfShapes/BandOfShapes/BandOfShapesRE/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/kathyc2/Desktop/BandOfShapes/BandOfShapesRE/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.StandardEvents">
+      <HintPath>C:/Users/kathyc2/Desktop/BandOfShapes/BandOfShapes/BandOfShapesRE/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

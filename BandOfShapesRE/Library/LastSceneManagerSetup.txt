@@ -1,4 +1,20 @@
 sceneSetups:
-- path: Assets/Scenes/MainMenu.unity
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< HEAD
+- path: Assets/Scenes/Ben.unity
+=======
+<<<<<<< Updated upstream
+- path: Assets/Scenes/Zac.unity
+=======
+- path: Assets/Scenes/Ben.unity
+>>>>>>> Stashed changes
+>>>>>>> parent of acac497... Added partially working main menu
+=======
+- path: Assets/Scenes/Zac.unity
+>>>>>>> master
+=======
+- path: Assets/Scenes/Ben.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
