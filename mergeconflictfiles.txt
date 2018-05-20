@@ -1,1 +1,1 @@
-BandOfShapesRE/Library/CurrentMaximizeLayout.dwlt BandOfShapesRE/Library/ScriptAssemblies/Assembly-CSharp.dll BandOfShapesRE/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb BandOfShapesRE/Library/assetDatabase3 BandOfShapesRE/Library/shadercompiler-UnityShaderCompiler.exe0.log
+BandOfShapesRE/Library/ScriptAssemblies/Assembly-CSharp.dll BandOfShapesRE/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb BandOfShapesRE/Library/assetDatabase3 BandOfShapesRE/Library/shadercompiler-UnityShaderCompiler.exe0.log
